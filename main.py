@@ -14,19 +14,19 @@ print("hello, world")
 
 mat = Matrix(UDP_IP, UDP_PORT, SIZE[0], SIZE[1])
 
-mat.display_color((255, 0, 0))
-sleep(0.3)
-mat.display_color((0, 255, 0))
-sleep(0.3)
-mat.display_color((0, 0, 255))
-sleep(0.3)
-
-gradient = get_gradient_3d(*SIZE)
-mat.display_image(gradient)
-
-sleep(0.6)
-
-hello_world(mat)
+# mat.display_color((255, 0, 0))
+# sleep(0.3)
+# mat.display_color((0, 255, 0))
+# sleep(0.3)
+# mat.display_color((0, 0, 255))
+# sleep(0.3)
+#
+# gradient = get_gradient_3d(*SIZE)
+# mat.display_image(gradient)
+#
+# sleep(0.6)
+#
+# hello_world(mat)
 
 display_gif(mat)
 
