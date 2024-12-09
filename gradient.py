@@ -12,9 +12,9 @@ def get_gradient_2d(start, stop, width, height, is_horizontal):
 def get_gradient_3d(
         width,
         height,
-        start_list = (0, 0, 192),
-        stop_list = (255, 255, 64),
-        is_horizontal_list = (True, False, False)
+        start_list=(0, 0, 192),
+        stop_list=(255, 255, 64),
+        is_horizontal_list=(True, False, False)
 ):
     result = np.zeros((height, width, len(start_list)), dtype=float)
 
