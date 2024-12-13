@@ -79,15 +79,26 @@ def content():
 
     fabulous_lab_munich_pages = []
 
-    for char in "Fabulous Lab Munich":
+    for char in "FabLab Munich ":
         p = StaticTextPage(mat, background=color_background)
         p.add_text_centered(
-            (mat.width / 2, 5),
+            (mat.width / 2, -20),
             char,
             color=color_primary,
-            font=font_headline(size=60)
+            font=font_numbers(size=60)
         )
         fabulous_lab_munich_pages.append(p)
+
+    merry_christmas_pages = []
+    for char in "Merry Christmas ":
+        p = StaticTextPage(mat, background=color_background)
+        p.add_text_centered(
+            (mat.width / 2, -20),
+            char,
+            color=color_primary,
+            font=font_numbers(size=60)
+        )
+        merry_christmas_pages.append(p)
 
     fab_scroller = fabulous_scroller()
 
@@ -113,118 +124,46 @@ def content():
     )
 
     while run:
-        page_color_r.display()
-        sleep(0.2)
-        page_color_g.display()
-        sleep(0.2)
-        page_color_b.display()
-        sleep(0.2)
-
-        page_gradient.display()
-        sleep(0.5)
-        page_text_1.display()
-        sleep(0.5)
-        page_text_2.display()
-        sleep(0.5)
-
-        page_text_3.display()
-        sleep(0.5)
-
-        page_text_4.display()
-        sleep(0.5)
+        # page_color_r.display()
+        # sleep(0.2)
+        # page_color_g.display()
+        # sleep(0.2)
+        # page_color_b.display()
+        # sleep(0.2)
+        #
+        # page_gradient.display()
+        # sleep(0.5)
+        # page_text_1.display()
+        # sleep(0.5)
+        # page_text_2.display()
+        # sleep(0.5)
+        #
+        # page_text_3.display()
+        # sleep(0.5)
+        #
+        # page_text_4.display()
+        # sleep(0.5)
 
         for page in fabulous_lab_munich_pages:
             page.display()
-            sleep(0.2)
+            sleep(0.5)
 
-        for _ in range(fab_scroller.max_i):
-            fab_scroller.display()
-            sleep(0.1)
+        for page in merry_christmas_pages:
+            page.display()
+            sleep(0.5)
 
-        for page in [gif_page1, gif_page2, gif_page3, gif_page4, gif_page5,
-                     gif_page6]:
-            for _ in range(page.frames):
-                page.display()
-                sleep(0.1)
-
-        for _ in range(10):
-            clock_page.display()
-            sleep(0.2)
-
-
-def content_clock():
-    clock_page_1 = ClockPage(
-        mat,
-        font=font_numbers(20),
-        x=2,
-        y=14,
-        background=color_background,
-        color=color_primary
-    )
-
-    clock_page_2 = ClockPage(
-        mat,
-        font=font_numbers(13),
-        x=1,
-        y=18,
-        seconds=True,
-        background=color_background,
-        color=color_primary
-    )
-
-    clock_page_3 = ClockPage(
-        mat,
-        font=font_numbers(32),
-        x=(12, 12),
-        y=(-8, 22),
-        seconds=True,
-        background=color_background,
-        color=color_primary
-    )
-
-    clock_page_4 = ClockPage(
-        mat,
-        font=font_numbers(26),
-        x=(16, 16, 16),
-        y=(-9, 11, 31),
-        seconds=True,
-        background=color_background,
-        color=color_primary
-    )
-
-    clock_page_5 = ClockPage(
-        mat,
-        font=(
-            font_numbers(38),
-            font_numbers(38),
-            font_numbers(16),
-        ),
-        x=(1, 1, 44),
-        y=(-12, 18, 44),
-        seconds=True,
-        background=color_background,
-        color=color_primary
-    )
-
-    while run:
-        # for _ in range(10):
-        #     clock_page_1.display()
-        #     sleep(0.2)
+        # for _ in range(fab_scroller.max_i):
+        #     fab_scroller.display()
+        #     sleep(0.1)
         #
-        # for _ in range(10):
-        #     clock_page_2.display()
-        #     sleep(0.2)
-
-        # for _ in range(10):
-        #     clock_page_3.display()
-        #     sleep(0.2)
-
-        # for _ in range(10):
-        #     clock_page_5.display()
-        #     sleep(0.2)
-
-        for _ in range(10):
-            clock_page_5.display()
+        # for page in [gif_page1, gif_page2, gif_page3, gif_page4, gif_page5,
+        #              gif_page6]:
+        #     for _ in range(page.frames):
+        #         page.display()
+        #         sleep(0.1)
+        #
+        for _ in range(50):
+            clock_page.display()
             sleep(0.2)
 
 

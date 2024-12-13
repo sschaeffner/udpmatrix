@@ -2,7 +2,7 @@ from PIL import ImageColor
 from PIL import ImageFont
 from PIL.ImageFont import FreeTypeFont
 
-color_primary = ImageColor.getcolor("#FF5053", "RGB")
+color_primary = ImageColor.getcolor("#fa9212", "RGB")
 color_highlight = ImageColor.getcolor("#FEF2FF", "RGB")
 color_accent_a = ImageColor.getcolor("#B2AAFF", "RGB")
 color_accent_b = ImageColor.getcolor("#6A5FDB", "RGB")
