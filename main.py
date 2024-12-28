@@ -16,7 +16,7 @@ from pages.gradient_page import GradientPage
 from pages.moving_image_page import MovingImagePage
 from pages.text_page import StaticTextPage
 
-UDP_IP = "10.100.205.85"
+UDP_IP = "151.217.193.74"
 UDP_PORT = 1234
 SIZE = (64, 64)
 
@@ -49,31 +49,25 @@ def fabulous_scroller() -> MovingImagePage:
 
 
 def content():
-    page_gradient = GradientPage(mat)
+    page_text_38c3 = StaticTextPage(mat)
+    page_text_38c3.add_text_centered(
+        (mat.width / 2, 0),
+        "38",
+        color=color_primary,
+        font=font_headline(size=36)
+    )
+    page_text_38c3.add_text_centered(
+        (mat.width / 2, 32),
+        "C3",
+        color=color_primary,
+        font=font_headline(size=36)
+    )
 
-    page_color_r = ColorPage(mat, color_red)
-    page_color_g = ColorPage(mat, color_green)
-    page_color_b = ColorPage(mat, color_blue)
-
-    page_text_1 = StaticTextPage(mat)
-    page_text_1.add_text((0, 0), "hello, world")
-
-    page_text_2 = StaticTextPage(mat)
-    page_text_2.add_text((0, 0), "another hello")
-
-    page_text_3 = StaticTextPage(mat, background=color_background)
-    page_text_3.draw.multiline_text(
+    page_text_fabulous = StaticTextPage(mat, background=color_background)
+    page_text_fabulous.draw.multiline_text(
         (3, 4),
         "Fab\nulous\nLab\nMunich",
         font=font_headline(12),
-        fill=color_primary
-    )
-
-    page_text_4 = StaticTextPage(mat, background=color_background)
-    page_text_4.draw.multiline_text(
-        (2, 5),
-        "Fab\nulous\nLab",
-        font=font_headline(16),
         fill=color_primary
     )
 
@@ -89,67 +83,43 @@ def content():
         )
         fabulous_lab_munich_pages.append(p)
 
-    fab_scroller = fabulous_scroller()
-
-    gif_page1 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy.gif")
-    gif_page2 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy-2.gif")
-    gif_page3 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy-3.gif")
-    gif_page4 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy-4.gif")
-    gif_page5 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy-5.gif")
-    gif_page6 = GifPage(mat, "/Users/sschaeffner/Downloads/giphy-6.gif")
+    # clock_page = ClockPage(
+    #     mat,
+    #     font=(
+    #         font_numbers(38),
+    #         font_numbers(38),
+    #         font_numbers(16),
+    #     ),
+    #     x=(1, 1, 44),
+    #     y=(-12, 18, 44),
+    #     seconds=False,
+    #     background=color_background,
+    #     color=color_primary
+    # )
 
     clock_page = ClockPage(
         mat,
-        font=(
-            font_numbers(38),
-            font_numbers(38),
-            font_numbers(16),
-        ),
-        x=(1, 1, 44),
-        y=(-12, 18, 44),
-        seconds=True,
+        font=font_numbers(38),
+        x=(10, 10, 0),
+        y=(-12, 18, 0),
         background=color_background,
         color=color_primary
     )
 
     while run:
-        page_color_r.display()
-        sleep(0.2)
-        page_color_g.display()
-        sleep(0.2)
-        page_color_b.display()
-        sleep(0.2)
+        page_text_38c3.display()
+        sleep(5)
 
-        page_gradient.display()
-        sleep(0.5)
-        page_text_1.display()
-        sleep(0.5)
-        page_text_2.display()
-        sleep(0.5)
-
-        page_text_3.display()
-        sleep(0.5)
-
-        page_text_4.display()
-        sleep(0.5)
+        page_text_fabulous.display()
+        sleep(5)
 
         for page in fabulous_lab_munich_pages:
             page.display()
-            sleep(0.2)
+            sleep(1)
 
-        for _ in range(fab_scroller.max_i):
-            fab_scroller.display()
-            sleep(0.1)
-
-        for page in [gif_page1, gif_page2, gif_page3, gif_page4, gif_page5,
-                     gif_page6]:
-            for _ in range(page.frames):
-                page.display()
-                sleep(0.1)
-
-        for _ in range(10):
+        for _ in range(20):
             clock_page.display()
-            sleep(0.2)
+            sleep(0.5)
 
 
 def content_clock():
