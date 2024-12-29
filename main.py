@@ -11,6 +11,7 @@ from matrix import Matrix
 from matrix.fake_matrix import FakeMatrix
 from pages.clock_page import ClockPage
 from pages.color_page import ColorPage
+from pages.day_page import DayPage
 from pages.gif_page import GifPage
 from pages.gradient_page import GradientPage
 from pages.moving_image_page import MovingImagePage
@@ -106,20 +107,32 @@ def content():
         color=color_primary
     )
 
+    day_page = DayPage(
+        mat,
+        day_font=font_headline(24),
+        number_font=font_numbers(42),
+        background=color_background,
+        color=color_primary
+    )
+
     while run:
         page_text_38c3.display()
         sleep(5)
 
-        page_text_fabulous.display()
-        sleep(5)
-
-        for page in fabulous_lab_munich_pages:
-            page.display()
+        for _ in range(5):
+            day_page.display()
             sleep(1)
+
+        # for page in fabulous_lab_munich_pages:
+        #     page.display()
+        #     sleep(1)
 
         for _ in range(20):
             clock_page.display()
             sleep(0.5)
+
+        page_text_fabulous.display()
+        sleep(5)
 
 
 def content_clock():
