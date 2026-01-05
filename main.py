@@ -3,11 +3,11 @@
 from threading import Thread
 from time import sleep
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 from congress import color_green, color_red, color_blue, color_background, \
     color_primary, font_headline, font_numbers
-from matrix import Matrix
+from matrix import Matrix, SerialMatrix
 from matrix.fake_matrix import FakeMatrix
 from pages.clock_page import ClockPage
 from pages.color_page import ColorPage
@@ -20,9 +20,13 @@ UDP_IP = "10.100.205.85"
 UDP_PORT = 1234
 SIZE = (64, 64)
 
+SERIAL_PORT = "/dev/cu.usbserial-0001"
+
 print("hello, world")
 
-mat = Matrix(UDP_IP, UDP_PORT, SIZE[0], SIZE[1])
+# mat = Matrix(UDP_IP, UDP_PORT, SIZE[0], SIZE[1])
+mat = SerialMatrix(SERIAL_PORT, 921600, SIZE[0], SIZE[1])
+sleep(1)
 # mat = FakeMatrix()
 run = True
 
